@@ -75,10 +75,10 @@ class Draft:
 
 
 #Uncomment to test that logic works
-test = Draft('TenTeamStandardBeerSheet.csv')
-test.generatePlayerList()
+#test = Draft('TenTeamStandardBeerSheet.csv')
+#test.generatePlayerList()
 #test.printPlayerList()
-test.printQBList()
-test.printRBList()
-test.printWRList()
-test.printTEList()
+#test.printQBList()
+#test.printRBList()
+#test.printWRList()
+#test.printTEList()
