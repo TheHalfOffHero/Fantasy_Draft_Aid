@@ -20,6 +20,10 @@ class Draft:
     def __init__(self, csv):
         self.csv = csv
         self.PlayerList = []
+        self.QBList = []
+        self.RBList = []
+        self.WRList = []
+        self.TEList = []
 
     #GeneratePlayerList creates reader and line by line adds them to self.PlayerList property
     #This allows me to manipulate and generate other lists with all available Players
@@ -30,20 +34,51 @@ class Draft:
             for row in reader:
                 self.PlayerList.append(Player(row[0],row[1],row[2],row[3],row[4],row[5],row[6],row[7],row[8],row[9]))
 
+        for player in self.PlayerList:
+            if player.Pos == 'QB':
+                self.QBList.append(player)
+            elif player.Pos == 'RB':
+                self.RBList.append(player)
+            elif player.Pos == 'WR':
+                self.WRList.append(player)
+            elif player.Pos == 'TE':
+                self.TEList.append(player)
+
+
     #written just to test that the list was actually generating
     def printPlayerList(self):
         for i in self.PlayerList:
+            print("============================")
             print(i.Name + ', ' + i.Pos)
+            print("============================")
+
+    def printQBList(self):
+        for i in self.QBList:
+            print(i.Name + ', ' + i.Pos)
+        print("============================")
+
+    def printRBList(self):
+        for i in self.RBList:
+            print(i.Name + ', ' + i.Pos)
+        print("============================")
+
+    def printWRList(self):
+        for i in self.WRList:
+            print(i.Name + ', ' + i.Pos)
+        print("============================")
+
+    def printTEList(self):
+        for i in self.TEList:
+            print(i.Name + ', ' + i.Pos)
+        print("============================")
 
 
 
 #Uncomment to test that logic works
-#test = Draft('TenTeamStandardBeerSheet.csv')
-#test.generatePlayerList()
+test = Draft('TenTeamStandardBeerSheet.csv')
+test.generatePlayerList()
 #test.printPlayerList()
-
-#testing Player
-#This works just fine but for some reason generatePlayerList gives me an empty list printed
-#testPlayer = Player('Matt', 'QB', 'TB/3', 2, 3, 1, 1, 1, 1, 1)
-#print(testPlayer.Name, testPlayer.Pos)
-
+test.printQBList()
+test.printRBList()
+test.printWRList()
+test.printTEList()
