@@ -14,6 +14,19 @@ class Player:
         self.ECR = ECR
         self.ECRAvgVSAdp = ECRAvgVSAdp
 
+    def __str__(self) -> str:
+        return "" + self.Pos + ": " + self.Name
+
+    def getECR(self):
+        print(type(self.ECR))
+        return self.ECR
+
+#######################################################################
+#
+#      Player Class End
+#
+#
+#######################################################################
 
 #Draft Class will include all draftable players with all values in csv included, with the exception of the last one.
 class Draft:
@@ -44,12 +57,28 @@ class Draft:
             elif player.Pos == 'TE':
                 self.TEList.append(player)
 
+    #
+    #This function allows me to pull the Player an any particular index in any particular list
+    #
+    def getPlayerAtIndex(self, index, Pos='Default'):
+        match Pos:
+            case 'Default':
+                return self.PlayerList[index]
+            case 'QB':
+                return self.QBList[index]
+            case 'RB':
+                return self.RBList[index]
+            case 'WR':
+                return self.WRList[index]
+            case 'TE':
+                return self.TEList[index]
+        
 
     #written just to test that the list was actually generating
     def printPlayerList(self):
         for i in self.PlayerList:
             print("============================")
-            print(i.Name + ', ' + i.Pos)
+            print(i.Name + ', ' + i.Pos + ' Rank: ' + i.ECR)
             print("============================")
 
     def printQBList(self):
@@ -72,12 +101,18 @@ class Draft:
             print(i.Name + ', ' + i.Pos)
         print("============================")
 
-
+#######################################################################
+#
+#      Draft Class End
+#
+#
+#######################################################################
 
 #Uncomment to test that logic works
-test = Draft('TenTeamStandardBeerSheet.csv')
-test.generatePlayerList()
-test.printPlayerList()
+#test = Draft('TenTeamStandardBeerSheet.csv')
+#test.generatePlayerList()
+#print(test.getPlayerAtIndex(1))
+
 #test.printQBList()
 #test.printRBList()
 #test.printWRList()
