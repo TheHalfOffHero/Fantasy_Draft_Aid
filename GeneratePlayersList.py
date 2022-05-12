@@ -75,9 +75,9 @@ class Draft:
 
 
 #Uncomment to test that logic works
-#test = Draft('TenTeamStandardBeerSheet.csv')
-#test.generatePlayerList()
-#test.printPlayerList()
+test = Draft('TenTeamStandardBeerSheet.csv')
+test.generatePlayerList()
+test.printPlayerList()
 #test.printQBList()
 #test.printRBList()
 #test.printWRList()
