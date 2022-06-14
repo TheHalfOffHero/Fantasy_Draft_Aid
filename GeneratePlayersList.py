@@ -77,9 +77,10 @@ class Draft:
     #written just to test that the list was actually generating
     def printPlayerList(self):
         for i in self.PlayerList:
-            print("============================")
-            print(i.Name + ', ' + i.Pos + ' Rank: ' + i.ECR)
-            print("============================")
+            print("========================================")
+            print(i.Name + ', ' + i.Pos + ' Tier: ' + i.Tier + ' Pos Rank :' + i.Rank)
+            print("=========================================")
+        
 
     def printQBList(self):
         for i in self.QBList:
@@ -109,9 +110,10 @@ class Draft:
 #######################################################################
 
 #Uncomment to test that logic works
-#test = Draft('TenTeamStandardBeerSheet.csv')
-#test.generatePlayerList()
-#print(test.getPlayerAtIndex(1))
+test = Draft('TenTeamStandardBeerSheet.csv')
+test.generatePlayerList()
+print(test.getPlayerAtIndex(4))
+print(test.printPlayerList())
 
 #test.printQBList()
 #test.printRBList()
